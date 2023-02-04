@@ -29,10 +29,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/states/Evening.gd"
 }, {
-"base": "Control",
-"class": "Event_box",
+"base": "Node",
+"class": "Event",
 "language": "GDScript",
-"path": "res://Event_box.gd"
+"path": "res://scripts/Events/Event.gd"
 }, {
 "base": "Node",
 "class": "Event_manager",
@@ -73,13 +73,18 @@ _global_script_classes=[ {
 "class": "State",
 "language": "GDScript",
 "path": "res://scripts/states/state.gd"
+}, {
+"base": "Event",
+"class": "StrangerFound",
+"language": "GDScript",
+"path": "res://scripts/Events/StrangerFoundEvent.gd"
 } ]
 _global_script_class_icons={
 "Action_event": "",
 "ActionsMenu": "",
 "Character": "",
 "Evening": "",
-"Event_box": "",
+"Event": "",
 "Event_manager": "",
 "GraphHolder": "",
 "Morning": "",
@@ -87,13 +92,14 @@ _global_script_class_icons={
 "Noon": "",
 "Random_event": "",
 "SceneManager": "",
-"State": ""
+"State": "",
+"StrangerFound": ""
 }
 
 [application]
 
 config/name="FlipFlapGene"
-run/main_scene="res://Event_box.tscn"
+run/main_scene="res://scenes/test.tscn"
 config/icon="res://icon.png"
 
 [gui]

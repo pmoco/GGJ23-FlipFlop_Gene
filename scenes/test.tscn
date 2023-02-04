@@ -1,8 +1,125 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/SceneManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/EventWindow.gd" type="Script" id=2]
+[ext_resource path="res://scenes/SideBar.gd" type="Script" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+
+[node name="EventWindow" type="Popup" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -150.0
+margin_right = 200.0
+margin_bottom = 150.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="EventWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.784314, 0.701961, 0.701961, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EventWindow/ColorRect"]
+anchor_right = 1.0
+margin_bottom = 14.0
+
+[node name="Title" type="Label" parent="EventWindow/ColorRect/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 14.0
+autowrap = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="EventWindow/ColorRect"]
+anchor_right = 1.0
+margin_left = 30.0
+margin_top = 60.0
+margin_right = -30.0
+margin_bottom = 260.0
+
+[node name="Description" type="Label" parent="EventWindow/ColorRect/VBoxContainer2"]
+margin_right = 340.0
+margin_bottom = 14.0
+autowrap = true
+
+[node name="Button" type="Button" parent="EventWindow/ColorRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -40.0
+margin_right = -10.0
+margin_bottom = -10.0
+text = "OK"
+__meta__ = {
+"_editor_description_": "OK"
+}
+
+[node name="SideBar" type="ColorRect" parent="."]
+anchor_bottom = 1.0
+margin_right = 150.0
+color = Color( 0.0509804, 0.313726, 0.819608, 1 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="SideBar"]
+margin_left = 27.0
+margin_top = 29.0
+margin_right = 67.0
+margin_bottom = 43.0
+rect_rotation = 0.362627
+text = "TIME: "
+
+[node name="turn" type="Label" parent="SideBar"]
+margin_left = 71.0
+margin_top = 27.0
+margin_right = 111.0
+margin_bottom = 41.0
+rect_rotation = 0.362627
+text = " "
+
+[node name="foodContainer" type="Container" parent="SideBar"]
+margin_left = 10.0
+margin_top = 70.0
+margin_right = -10.0
+margin_bottom = 109.0
+
+[node name="Label" type="Label" parent="SideBar/foodContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "FOOD"
+
+[node name="food" type="Label" parent="SideBar/foodContainer"]
+margin_left = 50.0
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="peopleContainer" type="Container" parent="SideBar"]
+margin_left = 10.0
+margin_top = 134.0
+margin_right = 10.0
+margin_bottom = 173.0
+
+[node name="Label" type="Label" parent="SideBar/peopleContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "PEOPLE
+"
+
+[node name="people" type="Label" parent="SideBar/peopleContainer"]
+margin_left = 60.0
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="NextButton" type="Button" parent="SideBar"]
+margin_left = 4.0
+margin_top = 487.0
+margin_right = 16.0
+margin_bottom = 507.0
+text = "Next"
+
+[connection signal="pressed" from="SideBar/NextButton" to="." method="_on_NextButton_pressed"]

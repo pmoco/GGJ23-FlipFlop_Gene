@@ -6,11 +6,19 @@ enum SIZE {
 	MEDIUM
 	SMALL
 }
-	
+
 var _random_list=["sick","infected","child","death","roobed"]
 
 	
 var _task_list=["injured","extra_food","death","betraied"]
+
+
+var rdmEventList =[StrangerFound.new() ]
+
+func getNightEvent(scene) -> Event:
+	return rdmEventList[randi() % rdmEventList.size()]
+
+
 
 # Called when the node enters the scene tree for the first time.
 func call_actions():
@@ -51,13 +59,10 @@ func call_actions():
 	elif event_type == SIZE.SMALL:
 		harvest = 1
 	list.append(harvest)
-	return Action_event(list)
+	#return Action_event(list)
+
 	
-func call_random(person):
-	var event_type = _random_list[randi() % _random_list.size()]
-	return Random_event(event_type)
-	
-func call_task(person):
-	var event_type = _task_list[randi() % _task_list.size()]
-	return Random_event(event_type)
-	
+#func call_task(person):
+#	var event_type = _task_list[randi() % _task_list.size()]
+#	return Random_event(event_type)
+#

@@ -9,9 +9,26 @@ func _init():
 	nextState = null
 
 
-func run() ->void : 
-	print("am Running %s"  % nameState)
+func run(scene) ->void : 
+	scene.days = scene.days +1
+	print("_______________NEW DAY %s______________"%scene.days) 
+	var event  =  scene.eventManager.getNightEvent(scene)
 	
+	print(event.eventName)
+	
+	
+	event.triggerEvent( scene)
+	
+	var eventWindow = scene.EventWindow
+	eventWindow.open(event.title , event.text)
+	# 	var event = scene.eventManager.GetNightEvent()
+	#  	event.show() 
+	#	event.run(scene)
+	
+	
+	
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
