@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Action_event.gd"
 }, {
 "base": "Control",
+"class": "ActionsMenu",
+"language": "GDScript",
+"path": "res://ActionsMenu.gd"
+}, {
+"base": "Control",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Character.gd"
@@ -71,6 +76,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Action_event": "",
+"ActionsMenu": "",
 "Character": "",
 "Evening": "",
 "Event_box": "",
@@ -87,12 +93,8 @@ _global_script_class_icons={
 [application]
 
 config/name="FlipFlapGene"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Event_box.tscn"
 config/icon="res://icon.png"
-
-[display]
-
-window/dpi/allow_hidpi=true
 
 [gui]
 

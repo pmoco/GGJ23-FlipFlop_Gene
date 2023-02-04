@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ActionsMenu.gd" type="Script" id=1]
 
 [node name="ActionsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 200.0
@@ -11,85 +14,83 @@ margin_right = 825.0
 margin_bottom = 500.0
 color = Color( 0.372549, 0.427451, 0.784314, 1 )
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
-margin_right = 1024.0
-margin_bottom = 600.0
-custom_constants/separation = 10
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
-margin_top = 275.0
-margin_right = 1024.0
-margin_bottom = 295.0
-custom_constants/separation = 10
-alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
-margin_left = 457.0
-margin_right = 500.0
-margin_bottom = 20.0
-text = "Hunt"
-
-[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer/Button"]
-margin_left = 120.0
-margin_top = -129.0
-margin_right = 309.0
-margin_bottom = -5.0
-text = "Take your family fishing
-Risk:
-Food:"
-
-[node name="Button2" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
-margin_left = 510.0
-margin_right = 567.0
-margin_bottom = 20.0
-text = "Fishing"
-
-[node name="Label2" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer/Button2"]
-margin_left = -259.0
-margin_top = -133.0
-margin_right = -42.0
-text = "Take your family hunting
-Risk:
-Food:"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
-margin_top = 305.0
-margin_right = 1024.0
-margin_bottom = 325.0
-custom_constants/separation = 10
-alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer2"]
-margin_left = 430.0
-margin_right = 512.0
-margin_bottom = 20.0
+[node name="Agriculture" type="Button" parent="."]
+margin_left = 256.0
+margin_top = 320.0
+margin_right = 338.0
+margin_bottom = 340.0
 text = "Agriculture"
 
-[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer2/Button"]
-margin_left = -161.0
-margin_top = 31.0
-margin_right = 23.0
-margin_bottom = 165.0
+[node name="Label" type="Label" parent="Agriculture"]
+anchor_top = 1.55
+anchor_right = 0.109
+anchor_bottom = 8.25
+margin_left = 24.0
+margin_top = 0.999998
+margin_right = 199.062
+margin_bottom = -7.0
 text = "Take your family farming
 Risk:
 Food:"
 
-[node name="Button2" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer2"]
-margin_left = 522.0
-margin_right = 593.0
-margin_bottom = 20.0
+[node name="Scavenge" type="Button" parent="."]
+margin_left = 528.0
+margin_top = 320.0
+margin_right = 599.0
+margin_bottom = 340.0
 text = "Scavenge"
 
-[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/HBoxContainer2/Button2"]
-margin_left = 38.0
-margin_top = 36.0
-margin_right = 261.0
-margin_bottom = 174.0
+[node name="Label" type="Label" parent="Scavenge"]
+anchor_top = 1.8
+anchor_bottom = 8.7
+margin_left = 32.0
+margin_top = -4.0
+margin_right = 255.0
+margin_bottom = -4.00002
 text = "Take your family scavenging
 Risk:
 Food:"
+
+[node name="Hunt" type="Button" parent="."]
+margin_left = 264.0
+margin_top = 144.0
+margin_right = 307.0
+margin_bottom = 164.0
+text = "Hunt"
+
+[node name="Label2" type="Label" parent="Hunt"]
+anchor_left = 1.0
+anchor_top = -6.65
+anchor_right = 1.0
+anchor_bottom = -0.45
+margin_left = -33.0
+margin_top = 158.0
+margin_right = 184.0
+margin_bottom = 158.0
+text = "Take your family hunting
+Risk:
+Food:"
+
+[node name="Fishing" type="Button" parent="."]
+margin_left = 521.0
+margin_top = 141.0
+margin_right = 578.0
+margin_bottom = 161.0
+text = "Fishing"
+expand_icon = true
+
+[node name="Label" type="Label" parent="Fishing"]
+anchor_top = -6.45
+anchor_bottom = -0.25
+margin_left = 39.0
+margin_top = 156.0
+margin_right = 228.0
+margin_bottom = 156.0
+text = "Take your family fishing
+Risk:
+Food:"
+
+[connection signal="pressed" from="Agriculture" to="." method="_on_Agriculture_pressed"]
+[connection signal="pressed" from="Scavenge" to="." method="_on_Scavenge_pressed"]
+[connection signal="pressed" from="Hunt" to="." method="_on_Hunt_pressed"]
+[connection signal="pressed" from="Fishing" to="." method="_on_Fishing_pressed"]
