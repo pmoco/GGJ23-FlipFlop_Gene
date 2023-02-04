@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="FlipFlapGene"
-run/main_scene="res://scenes/test.tscn"
+run/main_scene="res://Event_box.tscn"
 config/icon="res://icon.png"
 
 [gui]
