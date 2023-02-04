@@ -31,8 +31,12 @@ var partner : Character = null
 
 # Graph Row represents the row in which this character will be displayed in.
 # This might not be needed. Explore other solutions.
+var graph_holder : WeakRef = null
 var graph_row : int = 0
+var is_selected: bool = false
 
+var color_default = Color(1,0,0,1)
+var color_selected = Color(0.9,0.2,.5,1)
 
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
@@ -92,6 +96,36 @@ func is_child_of(character: Character) -> void:
 	graph_row = character.graph_row + 1
 
 func _draw():
-	var color = Color.red
-	color.a = 0.8
+	var color = color_default
+	if is_selected:
+		color = color_selected
 	draw_circle(rect_position, rect_size[0], color)
+
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		var offset = get_local_mouse_position()
+		if offset.distance_to(rect_position) < rect_size[0]:
+			var was_selected = is_selected
+			var graph = graph_holder.get_ref()
+			if graph:
+				graph.clear_selection()
+			if !was_selected:
+				set_is_selected()
+			get_tree().set_input_as_handled()
+
+func set_is_selected() -> void:
+	is_selected = true
+	for parent in parents:
+		parent.set_is_selected_parent()
+	for child in children:
+		child.set_is_selected_child()
+
+func set_is_selected_child() -> void:
+	is_selected = true
+	for child in children:
+		child.set_is_selected_child()
+		
+func set_is_selected_parent() -> void:
+	is_selected = true
+	for parent in parents:
+		parent.set_is_selected_parent()

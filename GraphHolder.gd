@@ -8,6 +8,9 @@ var active_row : int = 0
 var collumn_jump : float = 20
 var row_jump : float = 30
 
+var color_default = Color(1,1,1,0.3)
+var color_selected = Color(1,1,0, 0.9)
+
 func _init():
 	rect_position = Vector2(200,200)
 	pass
@@ -23,11 +26,12 @@ func _process(_delta):
 	update_graph()
 	update()
 
-func add_character(character: Character, row: int = -1) -> void:
+func add_character(character: Character) -> void:
 	if !is_instance_valid(character):
 		return
 	
 	characters.append(character)
+	character.graph_holder = weakref(self)
 	
 	if !characters_by_row.has(character.graph_row):
 		characters_by_row[character.graph_row] = []
@@ -72,8 +76,9 @@ func _draw():
 		
 		var b_position = _character.partner.rect_position * 2
 		
-		var color : Color = Color.white
-		color.a = 0.3
+		var color : Color = color_default
+		if _character.is_selected or _character.partner.is_selected:
+			color = color_selected
 		# Mariage line
 		draw_line(a_position, b_position, color, 5)
 		
@@ -86,6 +91,18 @@ func _draw():
 				var _child : Character = child
 				var char_pos = child.rect_position * 2
 				var char_pos_top = char_pos - Vector2(0, (_character.rect_size[0] + row_jump))
-				draw_line(child_top_mid_point, char_pos_top, color, 5)
-				draw_line(char_pos_top, char_pos, color, 5)
-	
+				
+				var color_child = color_default
+				if _child.is_selected:
+					color_child = color_selected
+				draw_line(child_top_mid_point, char_pos_top, color_child, 5)
+				draw_line(char_pos_top, char_pos, color_child, 5)
+
+func _input(event):
+	if event is InputEventMouseButton and event.is_pressed():
+		print("unhandled")
+		clear_selection()
+
+func clear_selection() -> void:
+	for character in characters:
+		character.is_selected = false

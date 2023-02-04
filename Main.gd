@@ -73,7 +73,7 @@ func _ready():
 	I.is_child_of(F)
 	graph_holder.add_character(I)
 	
-	print(graph_holder.characters_info_string())
+#	print(graph_holder.characters_info_string())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
