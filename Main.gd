@@ -1,28 +1,30 @@
 extends Control
 
-var characters = []
-
+var graph_holder : GraphHolder
 
 # Called when the node enters the scene tree for the first time.
-func _ready():	
+func _ready():
+	graph_holder = GraphHolder.new()
+	add_child(graph_holder)
+	
 	var A = Character.new()
 	A.first_name = "A"
 	A.last_name = "Fliby"
 	A.age = Character.AGE.ELDER
 	A.status = Character.STATUS.WOUNDED
-	characters.append(A)
+	graph_holder.add_character(A)
 	
 	var B = Character.new()
 	B.first_name = "B"
 	B.last_name = "Flob"
 	B.age = Character.AGE.ELDER
-	characters.append(B)
+	graph_holder.add_character(B)
 	
 	var C = Character.new()
 	C.first_name = "C"
 	C.last_name = "Flab"
 	C.age = Character.AGE.ELDER
-	characters.append(C)
+	graph_holder.add_character(C)
 	
 	B.marry(C)
 
@@ -30,7 +32,7 @@ func _ready():
 	D.first_name = "D"
 	D.last_name = "Flobady"
 	D.age = Character.AGE.ELDER
-	characters.append(D)
+	graph_holder.add_character(D)
 	
 	A.marry(D)
 	
@@ -38,47 +40,40 @@ func _ready():
 	var E = Character.new()
 	E.first_name = "E"
 	E.age = Character.AGE.ADULT
-	characters.append(E)
-	
 	E.is_child_of(B)
 	E.is_child_of(C)
+	graph_holder.add_character(E)
 	
 	var G = Character.new()
 	G.first_name = "G"
 	G.age = Character.AGE.ADULT
-	characters.append(G)
-	
 	G.is_child_of(B)
 	G.is_child_of(C)
+	graph_holder.add_character(G)
 	
 	var H = Character.new()
 	H.first_name = "H"
 	H.age = Character.AGE.ADULT
-	characters.append(H)
-	
 	H.is_child_of(B)
 	H.is_child_of(C)
+	graph_holder.add_character(H)
 	
 	var F = Character.new()
 	F.first_name = "F"
 	F.age = Character.AGE.ADULT
-	characters.append(F)
-	
 	F.is_child_of(A)
 	F.is_child_of(D)
-	
 	H.marry(F)
+	graph_holder.add_character(F)
 	
 	var I = Character.new()
 	I.first_name = "I"
 	I.age = Character.AGE.CHILD
-	characters.append(I)
-	
 	I.is_child_of(H)
 	I.is_child_of(F)
+	graph_holder.add_character(I)
 	
-	for character in characters:
-		print(character)
+	print(graph_holder.characters_info_string())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

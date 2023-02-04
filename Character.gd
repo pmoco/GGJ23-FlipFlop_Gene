@@ -29,17 +29,20 @@ var parents = [] # of type Character
 var children = [] # of type Character
 var partner : Character = null
 
+# Graph Row represents the row in which this character will be displayed in.
+# This might not be needed. Explore other solutions.
+var graph_row : int = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
-	pass
-
-func _ready() -> void:
-	pass
+	rect_position[0] = 0
+	rect_position[1] = 0
+	rect_size[0] = 60
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	update()
 
 func _to_string() -> String:
 	var alive_text = "It is dead."
@@ -85,3 +88,10 @@ func is_child_of(character: Character) -> void:
 	character.children.append(self)
 	
 	last_name = character.last_name
+	
+	graph_row = character.graph_row + 1
+
+func _draw():
+	var color = Color.red
+	color.a = 0.8
+	draw_circle(rect_position, rect_size[0], color)

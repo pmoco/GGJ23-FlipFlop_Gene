@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Character",
 "language": "GDScript",
 "path": "res://Character.gd"
+}, {
+"base": "Control",
+"class": "GraphHolder",
+"language": "GDScript",
+"path": "res://GraphHolder.gd"
 } ]
 _global_script_class_icons={
-"Character": ""
+"Character": "",
+"GraphHolder": ""
 }
 
 [application]
@@ -23,6 +29,10 @@ _global_script_class_icons={
 config/name="FlipFlapGene"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/dpi/allow_hidpi=true
 
 [gui]
 
