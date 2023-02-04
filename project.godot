@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Character.gd"
 }, {
+"base": "State",
+"class": "Evening",
+"language": "GDScript",
+"path": "res://scripts/states/Evening.gd"
+}, {
 "base": "Control",
 "class": "Event_box",
 "language": "GDScript",
@@ -29,23 +34,54 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Event_manager.gd"
 }, {
+"base": "State",
+"class": "Morning",
+"language": "GDScript",
+"path": "res://scripts/states/Morning.gd"
+}, {
+"base": "State",
+"class": "Night",
+"language": "GDScript",
+"path": "res://scripts/states/Night.gd"
+}, {
+"base": "State",
+"class": "Noon",
+"language": "GDScript",
+"path": "res://scripts/states/Noon.gd"
+}, {
 "base": "Node",
 "class": "Random_event",
 "language": "GDScript",
 "path": "res://Random_event.gd"
+}, {
+"base": "Control",
+"class": "SceneManager",
+"language": "GDScript",
+"path": "res://scripts/SceneManager.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://scripts/states/state.gd"
 } ]
 _global_script_class_icons={
 "Action_event": "",
 "Character": "",
+"Evening": "",
 "Event_box": "",
 "Event_manager": "",
-"Random_event": ""
+"Morning": "",
+"Night": "",
+"Noon": "",
+"Random_event": "",
+"SceneManager": "",
+"State": ""
 }
 
 [application]
 
 config/name="FlipFlapGene"
-run/main_scene="res://Event_box.tscn"
+run/main_scene="res://scenes/test.tscn"
 config/icon="res://icon.png"
 
 [gui]
