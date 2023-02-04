@@ -15,7 +15,7 @@ var _task_list=["injured","extra_food","death","betraied"]
 
 var rdmEventList =[StrangerFound.new() ]
 
-func getNightEvent(scene) -> Event:
+func getNightEvent(_scene) -> Event:
 	return rdmEventList[randi() % rdmEventList.size()]
 
 

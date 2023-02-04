@@ -7,7 +7,7 @@ var title = ""
 var photoPath=""
 var eventName ="DefautlEvent"
 
-func triggerEvent(scene ):
+func triggerEvent(_scene):
 	print("triggered  %s event" %eventName)
 
 

@@ -9,7 +9,7 @@ func _init():
 	nextState = null
 
 
-func run(scene) ->void : 
+func run(_scene) ->void : 
 	print("am Running %s"  % nameState)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

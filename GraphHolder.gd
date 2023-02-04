@@ -2,8 +2,6 @@ class_name GraphHolder extends Control
 
 var characters = []
 var characters_by_row = {}
-# row in which the graph is focusing
-var active_row : int = 0
 # top left corner of the graph
 var collumn_jump : float = 20
 var row_jump : float = 30
@@ -29,6 +27,20 @@ func _process(_delta):
 func add_character(character: Character) -> void:
 	if !is_instance_valid(character):
 		return
+	
+	if character.graph_row < 0:
+		# Find correct row
+		var graph_row = -1
+		for row in characters_by_row:
+			for charac in characters_by_row[row]:
+				if charac.age == character.age:
+					graph_row = row
+				break
+			if graph_row != -1:
+				break
+		if graph_row < 0:
+			graph_row = 0
+		character.graph_row = graph_row
 	
 	characters.append(character)
 	character.graph_holder = weakref(self)
@@ -106,3 +118,72 @@ func _input(event):
 func clear_selection() -> void:
 	for character in characters:
 		character.is_selected = false
+
+func init_default_graph()->void:
+	var graph_holder = self
+	
+	var A = Character.new()
+	A.first_name = "A"
+	A.last_name = "Fliby"
+	A.age = Character.AGE.ELDER
+	A.status = Character.STATUS.WOUNDED
+	graph_holder.add_character(A)
+	
+	var B = Character.new()
+	B.first_name = "B"
+	B.last_name = "Flob"
+	B.age = Character.AGE.ELDER
+	graph_holder.add_character(B)
+	
+	var C = Character.new()
+	C.first_name = "C"
+	C.last_name = "Flab"
+	C.age = Character.AGE.ELDER
+	graph_holder.add_character(C)
+	
+	B.marry(C)
+
+	var D = Character.new()
+	D.first_name = "D"
+	D.last_name = "Flobady"
+	D.age = Character.AGE.ELDER
+	graph_holder.add_character(D)
+	
+	A.marry(D)
+	
+	
+	var E = Character.new()
+	E.first_name = "E"
+	E.age = Character.AGE.ADULT
+	E.is_child_of(B)
+	E.is_child_of(C)
+	graph_holder.add_character(E)
+	
+	var G = Character.new()
+	G.first_name = "G"
+	G.age = Character.AGE.ADULT
+	G.is_child_of(B)
+	G.is_child_of(C)
+	graph_holder.add_character(G)
+	
+	var H = Character.new()
+	H.first_name = "H"
+	H.age = Character.AGE.ADULT
+	H.is_child_of(B)
+	H.is_child_of(C)
+	graph_holder.add_character(H)
+	
+	var F = Character.new()
+	F.first_name = "F"
+	F.age = Character.AGE.ADULT
+	F.is_child_of(A)
+	F.is_child_of(D)
+	H.marry(F)
+	graph_holder.add_character(F)
+	
+	var I = Character.new()
+	I.first_name = "I"
+	I.age = Character.AGE.CHILD
+	I.is_child_of(H)
+	I.is_child_of(F)
+	graph_holder.add_character(I)

@@ -32,7 +32,7 @@ var partner : Character = null
 # Graph Row represents the row in which this character will be displayed in.
 # This might not be needed. Explore other solutions.
 var graph_holder : WeakRef = null
-var graph_row : int = 0
+var graph_row : int = -1
 var is_selected: bool = false
 
 var color_default = Color(1,0,0,1)

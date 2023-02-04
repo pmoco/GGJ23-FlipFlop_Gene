@@ -25,7 +25,7 @@ var sideBar
 
 var eventManager :  Event_manager
 
-
+var graph_holder : GraphHolder
 
 
 func _init():
@@ -42,10 +42,18 @@ func _init():
 	evening.setNextState(night)
 	night.setNextState(morning)
 	currentState =  morning
+	
+	# Graph Init
+	graph_holder = GraphHolder.new()
+	add_child(graph_holder)
+	graph_holder.init_default_graph()
+	
+	graph_holder.rect_position = Vector2(400, 250)
+	graph_holder.rect_scale = Vector2(.7,.7)
 
 
 
-func _process(delta):
+func _process(_delta):
 	
 	sideBar.updateUI(self)
 	if (peopleCount == 0):
