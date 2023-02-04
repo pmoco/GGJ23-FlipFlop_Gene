@@ -9,19 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Action_event",
+"language": "GDScript",
+"path": "res://Action_event.gd"
+}, {
 "base": "Control",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Character.gd"
+}, {
+"base": "Control",
+"class": "Event_box",
+"language": "GDScript",
+"path": "res://Event_box.gd"
+}, {
+"base": "Node",
+"class": "Event_manager",
+"language": "GDScript",
+"path": "res://Event_manager.gd"
+}, {
+"base": "Node",
+"class": "Random_event",
+"language": "GDScript",
+"path": "res://Random_event.gd"
 } ]
 _global_script_class_icons={
-"Character": ""
+"Action_event": "",
+"Character": "",
+"Event_box": "",
+"Event_manager": "",
+"Random_event": ""
 }
 
 [application]
 
 config/name="FlipFlapGene"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Event_box.tscn"
 config/icon="res://icon.png"
 
 [gui]
