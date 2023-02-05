@@ -19,6 +19,7 @@ var night :Night
 
 #===============UI 
 var EventWindow 
+var TaskWindow
 var sideBar
 
 #Handlers 
@@ -27,6 +28,13 @@ var eventManager :  Event_manager
 
 var graph_holder : GraphHolder
 
+var WindowOpened =false
+
+#Action
+
+var action = "NONE"
+var risk= 0.0
+var gain= 0.0
 
 func _init():
 	eventManager =  Event_manager.new ()
@@ -56,6 +64,8 @@ func _init():
 func _process(_delta):
 	
 	sideBar.updateUI(self)
+	
+
 	if (peopleCount == 0):
 		print("U LOOSE") 
 	
@@ -77,6 +87,7 @@ func nextStep():
 func _ready():
 	EventWindow = get_node("EventWindow")
 	sideBar = get_node("SideBar")
+	TaskWindow =  get_node("TaskWindow")
 
 
 func printState():
@@ -95,3 +106,9 @@ func printState():
 
 func _on_NextButton_pressed():
 	nextStep() # Replace with function body.
+
+
+func _on_HuntButton_pressed():
+	risk = float(find_node("HuntRisk").text) 
+	gain = float(find_node("HuntGain").text)
+	action = "HUNT"

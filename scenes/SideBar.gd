@@ -12,7 +12,7 @@ func updateUI(scene):
 	
 	find_node("turn").text = scene.currentState.nameState
 	find_node("food").text = ("%s" %scene.food)
-	find_node("people").text = ("%s" %scene.peopleCount)
+	find_node("people").text = ("%s" %scene.graph_holder.get_alive_characters().size())
 
 
 
