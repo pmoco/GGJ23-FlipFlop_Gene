@@ -102,6 +102,10 @@ config/name="FlipFlapGene"
 run/main_scene="res://scenes/test.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/dpi/allow_hidpi=true
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
