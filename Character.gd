@@ -207,6 +207,7 @@ func _draw():
 		draw_set_transform(Vector2(), 0, Vector2(1, 1))
 
 func _input(event):
+	
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
 		var offset = get_local_mouse_position()
 		if offset.distance_to(rect_position) < rect_size[0]:
