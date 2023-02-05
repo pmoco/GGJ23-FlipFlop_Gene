@@ -3,7 +3,7 @@ class_name DineEvent  extends Event
 
 func triggerEvent(scene) :
 	self.title = "Time to dine"
-	self.text = "Food: "+scene.food+"\nPeople: "+scene.peopleCount
+	self.text = "Food: "+ String(scene.food) + "\nPeople to feed: "+ String(scene.peopleCount)+ "\n Children eat first"
 	
 	self.eventName =  "ThisisaDineEvent"
 	self.photoPath = "//"
