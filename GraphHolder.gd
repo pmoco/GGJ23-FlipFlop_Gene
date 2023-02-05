@@ -11,6 +11,8 @@ var color_selected = Color(1,1,0, 0.9)
 
 var scale_sensitivity: Vector2 = Vector2(.05,.05)
 
+var is_input_disabled: bool = false
+
 func _init():
 	rect_position = Vector2(200,200)
 	pass
@@ -138,6 +140,8 @@ var is_dragging: bool = false
 var mouse_offset: Vector2
 var local_pos: Vector2
 func _input(event):
+	if is_input_disabled:
+		return
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			clear_selection()

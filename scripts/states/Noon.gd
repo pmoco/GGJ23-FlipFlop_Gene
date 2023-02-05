@@ -31,8 +31,8 @@ func run(_scene) ->void :
 	var FarmGain = generateTaskGain(eficiency,FISH_Mod)
 	
 	_scene.TaskWindow.open(_scene,HuntRisk,HuntGain,ScavRisk,ScavGain,FarmRisk,FarmGain,FishRisk,FishGain)
-	_scene.WindowOpened =true
 	
+	_scene.set_window_open(true)
 
 
 

@@ -24,6 +24,7 @@ func run(scene) ->void :
 		var eventWindow = scene.EventWindow
 		eventWindow.open(event.title , event.text, event.photoPath, scene)
 	
+	scene.set_window_open(true)
 	# 	var event = scene.eventManager.GetNightEvent()
 	#  	event.show() 
 	#	event.run(scene)

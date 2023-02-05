@@ -2,6 +2,9 @@ extends Popup
 
 #signal update(tittle, description)
 
+func _init():
+	popup_exclusive = true
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
