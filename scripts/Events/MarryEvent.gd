@@ -11,9 +11,9 @@ func triggerEvent(scene) :
 		return
 	
 	if is_instance_valid(character1.partner):
-		return
+		return -1
 	if is_instance_valid(character2.partner):
-		return
+		return -1
 	self.title = character1.first_name+" " +character1.last_name+" as Married with "+character2.first_name+" " +character2.last_name
 	self.text = "Prepare the wedding love is in the air"
 	
@@ -25,5 +25,5 @@ func triggerEvent(scene) :
 #	scene.graph_holder
 	character1.marry(character2)
 	
-	var baby = Character.new()
+	return 0
 	

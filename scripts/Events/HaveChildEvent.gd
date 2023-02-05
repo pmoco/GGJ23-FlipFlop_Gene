@@ -11,7 +11,7 @@ func triggerEvent(scene) :
 	var list_characters = scene.graph_holder.get_characters_by_age (Character.AGE.ADULT)
 	var character: Character = list_characters[randi() % list_characters.size()] # TODO select random
 	if(!character.is_alive):
-		return
+		return -1
 	while(i<50 and !is_instance_valid(character.partner) ):
 		i=i+1
 		if (is_instance_valid(character.partner)):
@@ -35,3 +35,5 @@ func triggerEvent(scene) :
 	baby.is_child_of(character) 
 	baby.is_child_of(character.partner) 
 	scene.graph_holder.add_character(baby)
+	
+	return 0

@@ -18,6 +18,7 @@ var _task_list=["injured","extra_food","death","betraied"]
 
 var rdmEventList =[StrangerFound.new() , DiedEvent.new(), SickEvent.new(), MarryEvent.new(), HaveChildEvent.new()]
 var DayEventList =[StrangerFound.new() , DiedEvent.new(),ExtrafoodEvent.new(),WoundedEvent.new()]
+#DayEventList =[DiedEvent.new()]
 #var rdmEventList =[StrangerFound.new(),MarryEvent.new() ]
 
 func getNightEvent(_scene) -> Event:

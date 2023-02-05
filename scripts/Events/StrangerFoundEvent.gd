@@ -22,4 +22,4 @@ func triggerEvent(scene) :
 	stranger.age = Character.AGE.ADULT
 	stranger.status = Character.STATUS.HEALTHY
 	scene.graph_holder.add_character(stranger)
-	
+	return 0
