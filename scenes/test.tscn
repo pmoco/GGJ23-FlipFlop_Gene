@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/EventWindow.gd" type="Script" id=2]
 [ext_resource path="res://scenes/SideBar.gd" type="Script" id=3]
+[ext_resource path="res://ASSETS/SPLASHART_FISHING.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -15,50 +16,61 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -150.0
-margin_right = 200.0
-margin_bottom = 150.0
+margin_left = -305.5
+margin_top = -223.5
+margin_right = 305.5
+margin_bottom = 223.5
 script = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="EventWindow"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.784314, 0.701961, 0.701961, 1 )
+[node name="EventWindowImage" type="TextureRect" parent="EventWindow"]
+margin_right = 611.0
+margin_bottom = 447.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EventWindow/ColorRect"]
-anchor_right = 1.0
-margin_bottom = 14.0
-
-[node name="Title" type="Label" parent="EventWindow/ColorRect/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 14.0
-autowrap = true
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="EventWindow/ColorRect"]
-anchor_right = 1.0
-margin_left = 30.0
-margin_top = 60.0
-margin_right = -30.0
-margin_bottom = 260.0
-
-[node name="Description" type="Label" parent="EventWindow/ColorRect/VBoxContainer2"]
-margin_right = 340.0
-margin_bottom = 14.0
-autowrap = true
-
-[node name="Button" type="Button" parent="EventWindow/ColorRect"]
+[node name="Button" type="Button" parent="EventWindow/EventWindowImage"]
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = -40.0
-margin_right = -10.0
-margin_bottom = -10.0
+margin_left = -211.0
+margin_top = -90.5
+margin_right = -61.0
+margin_bottom = -60.5
 text = "OK"
 __meta__ = {
 "_editor_description_": "OK"
 }
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EventWindow/EventWindowImage"]
+anchor_right = 1.0
+margin_left = 70.0
+margin_top = 63.0
+margin_right = -241.0
+margin_bottom = 77.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Title" type="Label" parent="EventWindow/EventWindowImage/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 14.0
+text = "TITLE"
+valign = 1
+autowrap = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="EventWindow/EventWindowImage"]
+anchor_right = 1.0
+margin_left = 71.5
+margin_top = 105.5
+margin_right = -364.5
+margin_bottom = 280.5
+rect_scale = Vector2( 1.2, 1.2 )
+
+[node name="Description" type="Label" parent="EventWindow/EventWindowImage/VBoxContainer2"]
+margin_right = 175.0
+margin_bottom = 82.0
+text = "çokasokdnfaksdºfkasºdjfasijdfioajdsofijadsoifjaosidjfoiasjdfoiajsdoifjasoidjfaoisdjfoiajsdfioajsdiofjadifjoaisjdiofjaoisdjfaijoiajsidjfoiajsdf"
+autowrap = true
 
 [node name="SideBar" type="ColorRect" parent="."]
 anchor_bottom = 1.0

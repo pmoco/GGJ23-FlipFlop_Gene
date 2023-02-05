@@ -6,9 +6,11 @@ extends Popup
 # var a = 2
 # var b = "text"
 
-func open(title="", description="") :
+func open(title="", description="", photoPath = "") :
 	find_node("Title").text = title
 	find_node("Description").text = description
+	if photoPath != "":
+		find_node("EventWindowImage").texture = load(photoPath)
 	popup_centered()
 	
 	

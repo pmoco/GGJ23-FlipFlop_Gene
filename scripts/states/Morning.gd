@@ -20,7 +20,7 @@ func run(scene) ->void :
 	event.triggerEvent( scene)
 	
 	var eventWindow = scene.EventWindow
-	eventWindow.open(event.title , event.text)
+	eventWindow.open(event.title , event.text, event.photoPath)
 	# 	var event = scene.eventManager.GetNightEvent()
 	#  	event.show() 
 	#	event.run(scene)
