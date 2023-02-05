@@ -9,6 +9,8 @@ var row_jump : float = 30
 var color_default = Color(1,1,1,0.3)
 var color_selected = Color(1,1,0, 0.9)
 
+var scale_sensitivity: Vector2 = Vector2(.05,.05)
+
 func _init():
 	rect_position = Vector2(200,200)
 	pass
@@ -132,10 +134,29 @@ func _draw():
 				draw_line(child_top_mid_point, char_pos_top, color_child, 5)
 				draw_line(char_pos_top, char_pos, color_child, 5)
 
+var is_dragging: bool = false
+var mouse_offset: Vector2
+var local_pos: Vector2
 func _input(event):
-	if event is InputEventMouseButton and event.is_pressed():
-		print("unhandled")
-		clear_selection()
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			clear_selection()
+		
+		if event.button_index == BUTTON_WHEEL_UP:
+			rect_scale -= scale_sensitivity
+		
+		if event.button_index == BUTTON_WHEEL_DOWN:
+			rect_scale += scale_sensitivity
+		
+		if event.button_index == BUTTON_RIGHT:
+			is_dragging = event.pressed
+			mouse_offset = get_global_mouse_position()
+			local_pos = rect_position
+	
+	if event is InputEventMouseMotion and is_dragging:
+		var new_mouse_offset = get_global_mouse_position()
+		var different_offset = new_mouse_offset - mouse_offset
+		rect_position = local_pos + different_offset
 
 func clear_selection() -> void:
 	for character in characters:
@@ -145,20 +166,20 @@ func init_default_graph()->void:
 	var graph_holder = self
 	
 	var A = Character.new()
-	A.first_name = "A"
+	A.first_name = "Flip"
 	A.last_name = "Fliby"
 	A.age = Character.AGE.ELDER
 	A.status = Character.STATUS.WOUNDED
 	graph_holder.add_character(A)
 	
 	var B = Character.new()
-	B.first_name = "B"
+	B.first_name = "Flop"
 	B.last_name = "Flob"
 	B.age = Character.AGE.ELDER
 	graph_holder.add_character(B)
 	
 	var C = Character.new()
-	C.first_name = "C"
+	C.first_name = "Klap"
 	C.last_name = "Flab"
 	C.age = Character.AGE.ELDER
 	graph_holder.add_character(C)
@@ -166,7 +187,7 @@ func init_default_graph()->void:
 	B.marry(C)
 
 	var D = Character.new()
-	D.first_name = "D"
+	D.first_name = "Lop"
 	D.last_name = "Flobady"
 	D.age = Character.AGE.ELDER
 	graph_holder.add_character(D)
@@ -175,28 +196,28 @@ func init_default_graph()->void:
 	
 	
 	var E = Character.new()
-	E.first_name = "E"
+	E.first_name = "Klop"
 	E.age = Character.AGE.ADULT
 	E.is_child_of(B)
 	E.is_child_of(C)
 	graph_holder.add_character(E)
 	
 	var G = Character.new()
-	G.first_name = "G"
+	G.first_name = "Klipady"
 	G.age = Character.AGE.ADULT
 	G.is_child_of(B)
 	G.is_child_of(C)
 	graph_holder.add_character(G)
 	
 	var H = Character.new()
-	H.first_name = "H"
+	H.first_name = "Flopady"
 	H.age = Character.AGE.ADULT
 	H.is_child_of(B)
 	H.is_child_of(C)
 	graph_holder.add_character(H)
 	
 	var F = Character.new()
-	F.first_name = "F"
+	F.first_name = "Ricady"
 	F.age = Character.AGE.ADULT
 	F.is_child_of(A)
 	F.is_child_of(D)
@@ -204,7 +225,7 @@ func init_default_graph()->void:
 	graph_holder.add_character(F)
 	
 	var I = Character.new()
-	I.first_name = "I"
+	I.first_name = "Picady"
 	I.age = Character.AGE.CHILD
 	I.is_child_of(H)
 	I.is_child_of(F)

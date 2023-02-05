@@ -49,7 +49,7 @@ func _init():
 	graph_holder.init_default_graph()
 	
 	graph_holder.rect_position = Vector2(400, 250)
-	graph_holder.rect_scale = Vector2(.7,.7)
+	graph_holder.rect_scale = Vector2(1.5,1.5)
 
 
 
