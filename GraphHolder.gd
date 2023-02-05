@@ -24,6 +24,23 @@ func _process(_delta):
 	update_graph()
 	update()
 
+#searches tree for the row containing all characters of said Age returns null if none found 
+func get_characters_by_age (age) -> Character:
+	
+	var graph_row = -1
+	for row in characters_by_row:
+		for charac in characters_by_row[row]:
+			if charac.age == age :
+				graph_row = row
+			break
+		if graph_row != -1:
+			break
+	if graph_row < 0:
+		return null
+	return characters_by_row[graph_row]
+
+
+
 func add_character(character: Character) -> void:
 	if !is_instance_valid(character):
 		return
