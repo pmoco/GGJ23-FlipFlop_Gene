@@ -9,8 +9,18 @@ func _init():
 	nextState = null
 
 
-func run(_scene) ->void : 
+func run(scene) ->void : 
+	var flag
 	print("am Running %s"  % nameState)
+	var event  =  scene.eventManager.getDayEvent(scene)
+	
+	print(event.eventName)
+	
+	
+	flag = event.triggerEvent( scene)
+	if flag == 0:
+		var eventWindow = scene.EventWindow
+		eventWindow.open(event.title , event.text, event.photoPath)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

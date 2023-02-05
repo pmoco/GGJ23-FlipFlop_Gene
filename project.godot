@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://GraphHolder.gd"
 }, {
 "base": "Event",
+"class": "HaveChildEvent",
+"language": "GDScript",
+"path": "res://scripts/Events/HaveChildEvent.gd"
+}, {
+"base": "Event",
 "class": "MarryEvent",
 "language": "GDScript",
 "path": "res://scripts/Events/MarryEvent.gd"
@@ -109,6 +114,7 @@ _global_script_class_icons={
 "Event_manager": "",
 "ExtrafoodEvent": "",
 "GraphHolder": "",
+"HaveChildEvent": "",
 "MarryEvent": "",
 "Morning": "",
 "Night": "",

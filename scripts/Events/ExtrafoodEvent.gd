@@ -15,3 +15,4 @@ func triggerEvent(scene) :
 	
 	self.eventName =  "ThisisanextrafoodEvent"
 	self.photoPath = "//"
+	return 0
