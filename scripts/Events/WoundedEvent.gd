@@ -23,7 +23,7 @@ func triggerEvent(scene) :
 		self.text = character_to_kill.first_name+" " +character_to_kill.last_name+ " got injured"
 	
 	self.eventName =  "ThisisawoundedEvent"
-	self.photoPath = "//"
+	self.photoPath = "ASSETS/SPLASHART_SICKNESS.png"
 	return 0 
 	
 	#Change character state

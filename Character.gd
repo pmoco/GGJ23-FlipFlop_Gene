@@ -235,3 +235,23 @@ func set_is_selected_parent() -> void:
 	is_selected = true
 	for parent in parents:
 		parent.set_is_selected_parent()
+
+func eat(totalfood):
+	var hungry = 0
+	var foodneeded
+	if(self.status == STATUS.SICK):
+		foodneeded = 2
+	else:
+		foodneeded = 1
+	if totalfood-foodneeded >= 0:
+		totalfood = totalfood-foodneeded
+		if self.status == STATUS.HUNGRY:
+			self.status = STATUS.HEALTHY
+	else:
+		hungry = randi() % 2
+		if hungry == 0:
+			if self.status == STATUS.HUNGRY:
+				print("time to die")
+				self.is_alive = false
+			self.status = STATUS.HUNGRY
+	return totalfood
