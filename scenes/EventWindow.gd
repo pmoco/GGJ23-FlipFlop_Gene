@@ -6,7 +6,7 @@ extends Popup
 # var a = 2
 # var b = "text"
 
-func open(title="", description="", photoPath = "", _scene = null ) :
+func open(title="", description="", photoPath = "") :
 	
 	
 	find_node("Title").text = title

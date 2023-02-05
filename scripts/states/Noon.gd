@@ -34,17 +34,21 @@ func run(_scene) ->void :
 	
 	_scene.set_window_open(true)
 
+var rng = RandomNumberGenerator.new()
 
+	
 
 func generateTaskRisk( Modifier) :
-	
-	var rdm =  randi() % 10
-	return  Modifier * rdm  
+	rng.randomize()
+
+	var rdm = rng.randf_range(0.0, 10.0)
+	return  int(Modifier * rdm )
 
 func generateTaskGain(eficiency,Mod) :
+	rng.randomize()
+
+	var rdm = rng.randf_range(-0.2, .5)
 	
-	var rdm =  randi() % 51
+	var m = Mod + rdm
 	
-	var m = Mod + (rdm *.01)
-	
-	return (Mod + (rdm * .1 )) * eficiency
+	return int((m) * eficiency)
