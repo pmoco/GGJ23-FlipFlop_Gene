@@ -28,6 +28,8 @@ func getNightEvent(_scene) -> Event:
 func getDayEvent(_scene) -> Event:
 	return DayEventList[randi() % DayEventList.size()]
 
+func getDineEvent(_scene) -> Event:
+	return DineEvent.new()
 
 # Called when the node enters the scene tree for the first time.
 func call_actions():

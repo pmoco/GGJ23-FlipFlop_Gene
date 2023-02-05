@@ -20,7 +20,7 @@ func run(scene) ->void :
 		
 		
 	flag = event.triggerEvent( scene)
-	if flag != null:
+	if flag == 0:
 		var eventWindow = scene.EventWindow
 		eventWindow.open(event.title , event.text, event.photoPath)
 	
