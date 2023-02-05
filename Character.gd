@@ -59,7 +59,7 @@ var age_child_texture: Texture = null
 var age_offset : Vector2 = Vector2(-50, -55)
 var age_size : Vector2
 
-var face_index : int = (randi() % 10) + 1
+var face_index : int = (randi() % 20) + 1
 var face_texture: Texture = null
 var face_size : Vector2
 
