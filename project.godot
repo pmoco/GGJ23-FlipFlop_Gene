@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Character.gd"
 }, {
+"base": "Event",
+"class": "DiedEvent",
+"language": "GDScript",
+"path": "res://scripts/Events/DiedEvent.gd"
+}, {
 "base": "State",
 "class": "Evening",
 "language": "GDScript",
@@ -38,6 +43,11 @@ _global_script_classes=[ {
 "class": "Event_manager",
 "language": "GDScript",
 "path": "res://Event_manager.gd"
+}, {
+"base": "Event",
+"class": "ExtrafoodEvent",
+"language": "GDScript",
+"path": "res://scripts/Events/ExtrafoodEvent.gd"
 }, {
 "base": "Control",
 "class": "GraphHolder",
@@ -59,15 +69,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/states/Noon.gd"
 }, {
-"base": "Node",
-"class": "Random_event",
-"language": "GDScript",
-"path": "res://Random_event.gd"
-}, {
 "base": "Control",
 "class": "SceneManager",
 "language": "GDScript",
 "path": "res://scripts/SceneManager.gd"
+}, {
+"base": "Event",
+"class": "SickEvent",
+"language": "GDScript",
+"path": "res://scripts/Events/SickEvent.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -78,22 +88,30 @@ _global_script_classes=[ {
 "class": "StrangerFound",
 "language": "GDScript",
 "path": "res://scripts/Events/StrangerFoundEvent.gd"
+}, {
+"base": "Event",
+"class": "WoundedEvent",
+"language": "GDScript",
+"path": "res://scripts/Events/WoundedEvent.gd"
 } ]
 _global_script_class_icons={
 "Action_event": "",
 "ActionsMenu": "",
 "Character": "",
+"DiedEvent": "",
 "Evening": "",
 "Event": "",
 "Event_manager": "",
+"ExtrafoodEvent": "",
 "GraphHolder": "",
 "Morning": "",
 "Night": "",
 "Noon": "",
-"Random_event": "",
 "SceneManager": "",
+"SickEvent": "",
 "State": "",
-"StrangerFound": ""
+"StrangerFound": "",
+"WoundedEvent": ""
 }
 
 [application]
