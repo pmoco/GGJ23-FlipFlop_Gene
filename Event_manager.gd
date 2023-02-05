@@ -13,7 +13,7 @@ var _random_list=["sick","infected","child","death","roobed"]
 var _task_list=["injured","extra_food","death","betraied"]
 
 
-var rdmEventList =[StrangerFound.new() , DiedEvent.new(), SickEvent.new(), ExtrafoodEvent.new(), WoundedEvent.new()]
+var rdmEventList =[StrangerFound.new() , DiedEvent.new(), SickEvent.new(), ExtrafoodEvent.new(), WoundedEvent.new(), MarryEvent.new()]
 
 #var rdmEventList =[StrangerFound.new() ]
 
