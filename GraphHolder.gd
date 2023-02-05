@@ -135,14 +135,6 @@ func _input(event):
 func clear_selection() -> void:
 	for character in characters:
 		character.is_selected = false
-		
-
-func get_alive_characters() -> Array:
-	var alives = []
-	for character in characters:
-		if character.is_alive:
-			alives.append(character)
-	return alives
 
 func init_default_graph()->void:
 	var graph_holder = self

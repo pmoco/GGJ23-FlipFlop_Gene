@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/states/Noon.gd"
 }, {
+"base": "Node",
+"class": "Random_event",
+"language": "GDScript",
+"path": "res://Random_event.gd"
+}, {
 "base": "Control",
 "class": "SceneManager",
 "language": "GDScript",
@@ -107,6 +112,7 @@ _global_script_class_icons={
 "Morning": "",
 "Night": "",
 "Noon": "",
+"Random_event": "",
 "SceneManager": "",
 "SickEvent": "",
 "State": "",
@@ -119,10 +125,6 @@ _global_script_class_icons={
 config/name="FlipFlapGene"
 run/main_scene="res://scenes/test.tscn"
 config/icon="res://icon.png"
-
-[display]
-
-window/dpi/allow_hidpi=true
 
 [gui]
 
