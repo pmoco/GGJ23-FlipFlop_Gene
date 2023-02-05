@@ -20,7 +20,7 @@ func triggerEvent(scene) :
 	scene.peopleCount = scene.peopleCount +1
 	
 	self.eventName =  "ThisisanEvent"
-	self.photoPath = "ASSETS/SPLASHART_FISHING.png"
+	self.photoPath = "SPLASHART/SPLASHART_MARRIAGE.png"
 	
 #	scene.graph_holder
 	character1.marry(character2)
