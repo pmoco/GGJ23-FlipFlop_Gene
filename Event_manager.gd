@@ -7,17 +7,9 @@ enum SIZE {
 	SMALL
 }
 
-var _random_list=["sick","infected","child","death","roobed"]
-
-	
-var _task_list=["injured","extra_food","death","betraied"]
-
-
-
-
 
 var rdmEventList =[StrangerFound.new() , DiedEvent.new(), SickEvent.new(), MarryEvent.new(), HaveChildEvent.new()]
-var DayEventList =[StrangerFound.new() , DiedEvent.new(),ExtrafoodEvent.new(),WoundedEvent.new()]
+var DayEventList =[StrangerFound.new() , DiedEvent.new(),ExtrafoodEvent.new(),WoundedEvent.new(),GetHealthyEvent.new()]
 var GoodEventList = [StrangerFound.new() ,ExtrafoodEvent.new()]
 var BadEventList =[ DiedEvent.new(),WoundedEvent.new()]
 #DayEventList =[DiedEvent.new()]
