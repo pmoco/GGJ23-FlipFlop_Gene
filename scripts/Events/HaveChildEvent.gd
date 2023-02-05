@@ -22,8 +22,6 @@ func triggerEvent(scene) :
 	self.title = character.first_name+" " +character.last_name+" and "+character.partner.first_name+" " +character.partner.last_name+ " had a baby"
 	self.text = "A new Baby called "+ BabyFirstName+ " " + BabyLastName + " came to this world (+1 Pepl)"
 	
-	scene.peopleCount = scene.peopleCount +1
-	
 	self.eventName =  "ThisisanEvent"
 	self.photoPath = "SPLASHART/SPLASHART_BABY.png"
 	

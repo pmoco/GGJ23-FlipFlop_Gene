@@ -19,8 +19,6 @@ func triggerEvent(scene) :
 	self.title = "Someone Died!"
 	self.text = "Prepare the funeral "+character_to_kill.first_name+" " +character_to_kill.last_name+ "just died"
 	
-	scene.peopleCount = scene.peopleCount -1
-	
 	self.eventName =  "ThisisaDeathEvent"
 	self.photoPath = "SPLASHART/SPLASHART_DEATH.png"
 	
