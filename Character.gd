@@ -36,6 +36,7 @@ var graph_row : int = -1
 var is_selected: bool = false
 
 var color_default = Color(1,0,0,1)
+var color_dead = Color(0,0,0,0.5)
 var color_selected = Color(0.9,0.2,.5,1)
 
 # Called when the node enters the scene tree for the first time.
@@ -99,6 +100,8 @@ func _draw():
 	var color = color_default
 	if is_selected:
 		color = color_selected
+	if !is_alive:
+		color = color_dead
 	draw_circle(rect_position, rect_size[0], color)
 
 func _input(event):
