@@ -45,9 +45,22 @@ var color_selected = Color(0.9,0.2,.5,1)
 var frame_index : int = (randi() % 5) + 1
 var frame_texture: Texture = null
 
+var frame_status_texture: Texture = null
+
+var status_dead_texture: Texture = null
+var status_wounded_texture: Texture = null
+var status_hungry_texture: Texture = null
+var status_sick_texture: Texture = null
+var status_offset : Vector2 = Vector2(20, 25)
+var status_size : Vector2
+
+var age_elder_texture: Texture = null
+var age_child_texture: Texture = null
+var age_offset : Vector2 = Vector2(-50, -55)
+var age_size : Vector2
+
 var face_index : int = (randi() % 10) + 1
 var face_texture: Texture = null
-var face_offset : Vector2 = Vector2(10, 10)
 var face_size : Vector2
 
 var default_font: Font = null
@@ -60,14 +73,26 @@ func _init() -> void:
 	
 	var frame_texture_name = "MOLDURA_" + str(frame_index) + ".png"
 	frame_texture = load("res://ASSETS/UI_OVERLAYS/" + frame_texture_name)
+	frame_status_texture = load("res://ASSETS/UI_OVERLAYS/MOLDURA_STATES.png")
 	
 	var face_texture_name = "FACE_" + str(face_index) + ".png"
 	face_texture = load("res://ASSETS/FACES/" + face_texture_name)
 	face_size = Vector2(rect_size[0]*.8, rect_size[0]*1)
 	
+	status_size = Vector2(rect_size[0]*.5, rect_size[0]*.5)
+	age_size = Vector2(rect_size[0]*.5, rect_size[0]*.5)
+	
 	var label = Label.new()
 	default_font = label.get_font("")
 	label.free()
+	
+	status_dead_texture = load("res://ASSETS/ICONS/ICON_DEAD.png")
+	status_wounded_texture = load("res://ASSETS/ICONS/ICONS_WOUNDED.png")
+	status_hungry_texture = load("res://ASSETS/ICONS/ICON_FOOD_HUNGER.png")
+	status_sick_texture = load("res://ASSETS/ICONS/ICON_SICK.png")
+	
+	age_child_texture = load("res://ASSETS/ICONS/ICON_BABY.png")
+	age_elder_texture = load("res://ASSETS/ICONS/ICONS_ELDER.png")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -131,6 +156,7 @@ func _draw():
 	var frame_size: Vector2 = Vector2(Vector2(rect_size[0] * 2, rect_size[0] * 2))
 	var frame_rect: Rect2 = Rect2(frame_pos, frame_size)
 	draw_texture_rect(frame_texture, frame_rect, false, color)
+	draw_texture_rect(frame_status_texture, frame_rect, false, color)
 	
 	var face_pos: Vector2 = Vector2(rect_position - (face_size * Vector2(.5, .5)))
 	var face_rect: Rect2 = Rect2(face_pos, face_size)
@@ -141,6 +167,35 @@ func _draw():
 	draw_texture_rect(face_texture, face_rect, false, color)
 	if flip:
 		draw_set_transform(Vector2(), 0, Vector2(1, 1))
+	
+	# Status Effect
+	var status_texture = null
+	if !is_alive:
+		status_texture = status_dead_texture
+	else:
+		match status:
+			STATUS.HUNGRY:
+				status_texture = status_hungry_texture
+			STATUS.SICK:
+				status_texture = status_sick_texture
+			STATUS.WOUNDED:
+				status_texture = status_wounded_texture
+	if status_texture:
+		var status_pos: Vector2 = Vector2(rect_position + status_offset)
+		var status_rect: Rect2 = Rect2(status_pos, status_size)
+		draw_texture_rect(status_texture, status_rect, false, color)
+	
+	# Age Effect
+	var age_texture = null
+	match age:
+		AGE.CHILD:
+			age_texture = age_child_texture
+		AGE.ELDER:
+			age_texture = age_elder_texture
+	if age_texture:
+		var age_pos: Vector2 = Vector2(rect_position + age_offset)
+		var age_rect: Rect2 = Rect2(age_pos, age_size)
+		draw_texture_rect(age_texture, age_rect, false, color)
 	
 	# Show Tooltip
 	var offset = get_local_mouse_position()
