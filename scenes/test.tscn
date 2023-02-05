@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=50 format=2]
+=======
+[gd_scene load_steps=16 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://scripts/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/EventWindow.gd" type="Script" id=2]
@@ -14,6 +18,7 @@
 [ext_resource path="res://ASSETS/UI_OVERLAYS/0CLICK_FISH_ACTVITY.png" type="Texture" id=12]
 [ext_resource path="res://ASSETS/UI_OVERLAYS/0CLICK_HARVEST_ACTIVITY.png" type="Texture" id=13]
 [ext_resource path="res://scenes/TaskWindow.gd" type="Script" id=14]
+<<<<<<< Updated upstream
 [ext_resource path="res://ASSETS/__TEXT_FONT__/Skranji-Bold.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://ASSETS/__TEXT_FONT__/Skranji-Regular.ttf" type="DynamicFontData" id=16]
 
@@ -115,6 +120,9 @@ font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=33]
 font_data = ExtResource( 16 )
+=======
+[ext_resource path="res://scripts/states/Evening.gd" type="Script" id=15]
+>>>>>>> Stashed changes
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -163,6 +171,7 @@ margin_top = 105.5
 margin_right = -364.5
 margin_bottom = 280.5
 rect_scale = Vector2( 1.2, 1.2 )
+script = ExtResource( 15 )
 
 [node name="Description" type="Label" parent="EventWindow/EventWindowImage/VBoxContainer2"]
 margin_right = 175.0
@@ -171,7 +180,7 @@ custom_fonts/font = SubResource( 2 )
 text = "çokasokdnfaksdºfkasºdjfasijdfioajdsofijadsoifjaosidjfoiasjdfoiajsdoifjasoidjfaoisdjfoiajsdfioajsdiofjadifjoaisjdiofjaoisdjfaijoiajsidjfoiajsdf"
 autowrap = true
 
-[node name="Button" type="Button" parent="EventWindow/EventWindowImage"]
+[node name="EventButton" type="Button" parent="EventWindow/EventWindowImage"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -569,7 +578,7 @@ margin_bottom = 71.0
 custom_fonts/font = SubResource( 33 )
 text = "GAIN"
 
-[connection signal="pressed" from="EventWindow/EventWindowImage/Button" to="EventWindow" method="_on_Button_pressed"]
+[connection signal="pressed" from="EventWindow/EventWindowImage/EventButton" to="." method="_on_EventButton_pressed"]
 [connection signal="pressed" from="SideBar/NextButton" to="." method="_on_NextButton_pressed"]
 [connection signal="pressed" from="TaskWindow/EventWindowImage/HuntBox/Container/HuntButton" to="." method="_on_HuntButton_pressed"]
 [connection signal="pressed" from="TaskWindow/EventWindowImage/HuntBox/Container/HuntButton" to="TaskWindow" method="_on_HuntButton_pressed"]

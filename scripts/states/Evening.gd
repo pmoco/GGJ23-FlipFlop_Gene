@@ -2,6 +2,7 @@ class_name Evening extends State
 
 
 
+var EventCount= -1
 
 # Called when the node enters the scene tree for the first time.
 func _init():
@@ -11,13 +12,22 @@ func _init():
 var rng = RandomNumberGenerator.new()
 
 func run(scene) ->void : 
-	var flag
+	
 	print("am Running %s"  % nameState)
 	
-	var people =  scene.graph_holder.get_alive_characters()
-	var event =null
+	EventCount =  scene.graph_holder.get_alive_characters().size()
+	nextEvent(scene)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+func nextEvent(scene):
+	var event
 	
-	for p in people :
+	print (EventCount)
+	if (EventCount== 0):
+		endEvent(scene)
+	elif EventCount >0:
 		rng.randomize()
 		var rdm = rng.randf_range(0.0, 100.0)
 		if rdm < 10 :
@@ -25,16 +35,19 @@ func run(scene) ->void :
 		elif rdm>100-scene.risk:
 			event = scene.eventManager.getBadEvent(scene)
 		if event :
-			flag = event.triggerEvent( scene)
+			var flag = event.triggerEvent( scene)
 			if flag == 0:
+				EventCount = EventCount-1
 				var eventWindow = scene.EventWindow
 				eventWindow.open(event.title , event.text, event.photoPath)
-		
-	
-	endEvent(scene)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		else :
+			EventCount = EventCount-1
+			nextEvent(scene)
+	else:
+		var window =scene.EventWindow
+		if window.is_visible():
+			window.hide()
+
 
 func endEvent(scene):
 	var event = null
@@ -51,3 +64,6 @@ func endEvent(scene):
 	if event :
 		event.triggerEvent(scene)
 		scene.EventWindow.open(event.title , event.text, event.photoPath)
+
+	
+	EventCount =-1

@@ -7,7 +7,7 @@ class_name Morning extends State
 func _init():
 	nameState = "MORNING"
 	nextState = null
-
+	
 
 func run(scene) ->void : 
 	var flag

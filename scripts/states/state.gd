@@ -6,7 +6,14 @@ class_name State
 var nameState :String  = "state"
 var nextState :State = null
 
+func nextEvent(scene):
+	
+	var window =scene.EventWindow
+	if window.is_visible():
+		window.hide()
 
+	
+	
 
 
 # Declare member variables here. Examples:

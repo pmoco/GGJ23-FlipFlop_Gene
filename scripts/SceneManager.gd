@@ -83,7 +83,7 @@ func nextStep():
 	
 	currentState = currentState.getNextState()
 	currentState.run(self)
-	printState()
+	
 
 func _input(event):
 	if event is InputEventKey and event.scancode == KEY_ESCAPE and event.is_pressed():
@@ -111,6 +111,8 @@ func printState():
 #func _process(delta):
 #	pass
 
+func _on_EventButton_pressed():
+	currentState.nextEvent(self) # Replace with function body.
 
 func _on_NextButton_pressed():
 	nextStep() # Replace with function body.
