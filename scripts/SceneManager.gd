@@ -117,25 +117,25 @@ func _on_ScavButton_pressed():
 	risk = float(find_node("ScavRisk").text) 
 	gain = float(find_node("ScavGain").text)
 	action = "SCAV"
-	WindowOpened =false
+	set_window_open(false)
 
 func _on_HuntButton_pressed():
 	risk = float(find_node("HuntRisk").text) 
 	gain = float(find_node("HuntGain").text)
 	action = "HUNT"
-	WindowOpened =false
+	set_window_open(false)
 
 func _on_FarmButton_pressed():
 	risk = float(find_node("FarmRisk").text) 
 	gain = float(find_node("FarmGain").text)
 	action = "FARM"
-	WindowOpened =false
+	set_window_open(false)
 	
 func _on_FishButton_pressed():
 	risk = float(find_node("FishRisk").text) 
 	gain = float(find_node("FishGain").text)
 	action = "FISH"
-	WindowOpened =false
+	set_window_open(false)
 	
 	
 func calc_efficiency ():
@@ -164,3 +164,7 @@ func calc_efficiency ():
 			
 			efficiency= efficiency +base_eff
 	return efficiency
+
+func set_window_open(is_open: bool) ->void:
+	WindowOpened = is_open
+#	graph_holder.is_input_disabled = is_open
