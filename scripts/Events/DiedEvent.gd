@@ -6,9 +6,9 @@ func triggerEvent(scene) :
 	var age
 	if(age_number <30):
 		age = Character.AGE.CHILD
-	elif(30 <= age_number and  age_number < 50):
-		age = Character.AGE.ADULT
-	elif(50 <= age_number):
+	elif(  age_number < 50):
+		age = Character.AGE.ADULT #20%
+	else: #49%
 		age = Character.AGE.ELDER
 	var list_characters = scene.graph_holder.get_characters_by_age (age)
 	var character_to_kill: Character = list_characters[randi() % list_characters.size()] # TODO select random
