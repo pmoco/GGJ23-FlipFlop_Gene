@@ -39,7 +39,12 @@ func get_characters_by_age (age) -> Character:
 		return null
 	return characters_by_row[graph_row]
 
-
+func get_alive_characters() -> Array:
+	var alives = []
+	for character in characters:
+		if character.is_alive:
+			alives.append(character)
+	return alives
 
 func add_character(character: Character) -> void:
 	if !is_instance_valid(character):
