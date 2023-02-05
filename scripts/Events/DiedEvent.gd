@@ -5,24 +5,22 @@ func triggerEvent(scene) :
 	var age_number = randi() % 100
 	var age
 	if(age_number <30):
-		age = "child"
-	elif(30 <= age_number <50):
-		age = "adult"
+		age = Character.AGE.CHILD
+	elif(30 <= age_number and  age_number<50):
+		age = Character.AGE.ADULT
 	elif(50 <= age_number):
-		age = "elder"
-	
+		age = Character.AGE.ELDER
+	var list_characters = scene.graph_holder.get_characters_by_age (age)
+	var character_to_kill: Character = list_characters[randi() % list_characters.size()] # TODO select random
+	if(!character_to_kill.is_alive):
+		return
 	self.title = "Someone Died!"
-	self.text = "Prepare the funeral "+"namehere"+" just died"
+	self.text = "Prepare the funeral "+character_to_kill.first_name+" " +character_to_kill.last_name+ "just died"
 	
 	scene.peopleCount = scene.peopleCount -1
 	
 	self.eventName =  "ThisisaDeathEvent"
 	self.photoPath = "//"
-	
-	var alive_characters : Array = scene.graph_holder.get_alive_characters()
-	if alive_characters.size() == 0:
-		return
-	var character_to_kill: Character = alive_characters[0] # TODO select random
 	
 	character_to_kill.is_alive = false
 #	scene.graph_holder

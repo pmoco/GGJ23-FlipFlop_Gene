@@ -1,6 +1,6 @@
 class_name StrangerFound  extends Event
 
-var possible_names = ["Billy" ,  "Jilly", "skasd"]
+var possible_names = ["Billy" ,  "Jilly", "skasd", "filly", "Gilly"]
 
 
 func triggerEvent(scene) :
