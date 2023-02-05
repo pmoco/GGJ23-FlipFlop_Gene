@@ -16,7 +16,7 @@ func _init():
 func run(_scene) ->void : 
 	
 	var people =  _scene.graph_holder.get_alive_characters().size()
-	var eficiency =  people * .75
+	var eficiency =  _scene.calc_efficiency()
 	
 	var HuntRisk = generateTaskRisk(HUNT_Mod)
 	var HuntGain = generateTaskGain(eficiency,HUNT_Mod)
@@ -31,7 +31,7 @@ func run(_scene) ->void :
 	var FarmGain = generateTaskGain(eficiency,FISH_Mod)
 	
 	_scene.TaskWindow.open(_scene,HuntRisk,HuntGain,ScavRisk,ScavGain,FarmRisk,FarmGain,FishRisk,FishGain)
-	
+	_scene.WindowOpened =true
 	
 
 
@@ -44,5 +44,7 @@ func generateTaskRisk( Modifier) :
 func generateTaskGain(eficiency,Mod) :
 	
 	var rdm =  randi() % 51
+	
+	var m = Mod + (rdm *.01)
 	
 	return (Mod + (rdm * .1 )) * eficiency

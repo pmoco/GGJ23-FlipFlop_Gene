@@ -65,7 +65,10 @@ func _process(_delta):
 	
 	sideBar.updateUI(self)
 	
-
+	peopleCount =int(find_node("people").text)
+	
+	
+	
 	if (peopleCount == 0):
 		print("U LOOSE") 
 	
@@ -110,8 +113,54 @@ func printState():
 func _on_NextButton_pressed():
 	nextStep() # Replace with function body.
 
+func _on_ScavButton_pressed():
+	risk = float(find_node("ScavRisk").text) 
+	gain = float(find_node("ScavGain").text)
+	action = "SCAV"
+	WindowOpened =false
 
 func _on_HuntButton_pressed():
 	risk = float(find_node("HuntRisk").text) 
 	gain = float(find_node("HuntGain").text)
 	action = "HUNT"
+	WindowOpened =false
+
+func _on_FarmButton_pressed():
+	risk = float(find_node("FarmRisk").text) 
+	gain = float(find_node("FarmGain").text)
+	action = "FARM"
+	WindowOpened =false
+	
+func _on_FishButton_pressed():
+	risk = float(find_node("FishRisk").text) 
+	gain = float(find_node("FishGain").text)
+	action = "FISH"
+	WindowOpened =false
+	
+	
+func calc_efficiency ():
+	
+	var chars = graph_holder.get_alive_characters()
+	var efficiency = 0
+	
+	var base_eff= 1
+	for character in chars:
+		if character.is_alive:
+			if character.age == Character.AGE.ADULT :
+				 base_eff =1.5
+			elif character.age == Character.AGE.ELDER :
+				 base_eff =.7
+			else:
+				base_eff=0
+			
+			if character.status == Character.STATUS.HEALTHY:
+				base_eff  = base_eff *1 
+			elif character.status == Character.STATUS.HUNGRY:
+				base_eff =base_eff *.7
+			elif character.status == Character.STATUS.SICK:
+				base_eff =base_eff *.5
+			elif character.status == Character.STATUS.WOUNDED:
+				base_eff =base_eff *.5
+			
+			efficiency= efficiency +base_eff
+	return efficiency

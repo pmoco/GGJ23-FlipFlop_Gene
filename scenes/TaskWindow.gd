@@ -29,3 +29,18 @@ func _ready():
 func _on_HuntButton_pressed():
 	if self.is_visible():
 		self.hide()
+
+
+func _on_ScavButton_pressed():
+	if self.is_visible():
+		self.hide() # Replace with function body.
+
+
+func _on_FarmButton_pressed():
+	if self.is_visible():
+		self.hide() # Replace with function body.
+
+
+func _on_FishButton_pressed():
+	if self.is_visible():
+		self.hide() # Replace with function body.
