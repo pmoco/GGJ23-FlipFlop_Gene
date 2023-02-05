@@ -37,6 +37,8 @@ var risk= 0.0
 var gain= 0.0
 
 func _init():
+	randomize()
+	
 	eventManager =  Event_manager.new ()
 	
 	morning = Morning.new()
