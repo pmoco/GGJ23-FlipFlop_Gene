@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/EventWindow.gd" type="Script" id=2]
 [ext_resource path="res://scenes/SideBar.gd" type="Script" id=3]
 [ext_resource path="res://ASSETS/UI_OVERLAYS/0HUNT_ACTVITY.png" type="Texture" id=4]
-[ext_resource path="res://SPLASHART/SPLASHART_FARMING.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/UI_OVERLAYS/00RIGHT_BORDER.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/UI_OVERLAYS/2POP_UPS.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/UI_OVERLAYS/0HARVEST_ACTIVITY.png" type="Texture" id=7]
 [ext_resource path="res://ASSETS/UI_OVERLAYS/0FARM_ACTVITY.png" type="Texture" id=8]
@@ -80,10 +80,18 @@ margin_bottom = -83.5
 text = "OK"
 
 [node name="SideBar" type="ColorRect" parent="."]
+anchor_right = 0.146
 anchor_bottom = 1.0
-margin_right = 150.0
-color = Color( 0.0509804, 0.313726, 0.819608, 1 )
+margin_right = 0.495987
+color = Color( 0, 0, 1, 0 )
 script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="SideBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
 
 [node name="Label" type="Label" parent="SideBar"]
 margin_left = 27.0
@@ -135,10 +143,14 @@ margin_right = 40.0
 margin_bottom = 14.0
 
 [node name="NextButton" type="Button" parent="SideBar"]
-margin_left = 4.0
-margin_top = 487.0
-margin_right = 16.0
-margin_bottom = 507.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -88.096
+margin_top = -42.0
+margin_right = -46.096
+margin_bottom = -22.0
 text = "Next"
 
 [node name="TaskWindow" type="Popup" parent="."]
