@@ -13,7 +13,7 @@ func triggerEvent(scene) :
 	scene.peopleCount = scene.peopleCount +1
 	
 	self.eventName =  "ThisisanEvent"
-	self.photoPath = "ASSETS/SPLASHART_STRANGER.png"
+	self.photoPath = "SPLASHART/SPLASHART_STRANGER FOUND.png"
 	
 #	scene.graph_holder
 	var stranger = Character.new()

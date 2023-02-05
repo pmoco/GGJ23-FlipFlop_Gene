@@ -22,7 +22,7 @@ func triggerEvent(scene) :
 	scene.peopleCount = scene.peopleCount -1
 	
 	self.eventName =  "ThisisaDeathEvent"
-	self.photoPath = "ASSETS/SPLASHART_DEATH.png"
+	self.photoPath = "SPLASHART/SPLASHART_DEATH.png"
 	
 	character_to_kill.is_alive = false
 	return 0

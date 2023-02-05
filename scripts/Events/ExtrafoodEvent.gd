@@ -14,5 +14,5 @@ func triggerEvent(scene) :
 	scene.food = scene.food +5
 	
 	self.eventName =  "ThisisanextrafoodEvent"
-	self.photoPath = "ASSETS/SPLASHART_EXTRA FOOD.png"
+	self.photoPath = "SPLASHART/SPLASHART_EXTRA FOOD.png"
 	return 0

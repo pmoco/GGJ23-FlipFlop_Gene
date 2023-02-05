@@ -6,7 +6,7 @@ func triggerEvent(scene) :
 	self.text = "Food: "+ String(scene.food) + "\nPeople to feed: "+ String(scene.peopleCount)+ "\n Children eat first Elders in last and if someone hungry doesn't eat dies\nSick in 2 food"
 	
 	self.eventName =  "ThisisaDineEvent"
-	self.photoPath = "ASSETS/SPLASHART_MEAL.png"
+	self.photoPath = "SPLASHART/SPLASHART_MEAL TIME.png"
 	
 	return 0
 #	scene.graph_holder

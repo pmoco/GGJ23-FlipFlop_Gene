@@ -1,8 +1,6 @@
 class_name Night extends State
 
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _init():
 	nameState = "NIGHT"
