@@ -16,8 +16,8 @@ func triggerEvent(scene) :
 	if !character_to_kill.is_alive:
 		print(character_to_kill.is_alive)
 		return -1
-	self.title = "Someone Died!"
-	self.text = "Prepare the funeral "+character_to_kill.first_name+" " +character_to_kill.last_name+ "just died"
+	self.title = "Someone passed away!"
+	self.text = "Prepare the funeral "+character_to_kill.first_name+" " +character_to_kill.last_name+ "just left this world"
 	
 	self.eventName =  "ThisisaDeathEvent"
 	self.photoPath = "SPLASHART/SPLASHART_DEATH.png"

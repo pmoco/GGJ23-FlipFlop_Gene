@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://scripts/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/EventWindow.gd" type="Script" id=2]
@@ -14,6 +14,107 @@
 [ext_resource path="res://ASSETS/UI_OVERLAYS/0CLICK_FISH_ACTVITY.png" type="Texture" id=12]
 [ext_resource path="res://ASSETS/UI_OVERLAYS/0CLICK_HARVEST_ACTIVITY.png" type="Texture" id=13]
 [ext_resource path="res://scenes/TaskWindow.gd" type="Script" id=14]
+[ext_resource path="res://ASSETS/__TEXT_FONT__/Skranji-Bold.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://ASSETS/__TEXT_FONT__/Skranji-Regular.ttf" type="DynamicFontData" id=16]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=17]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=18]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=20]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=21]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=22]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=23]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=24]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=25]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=26]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=27]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=28]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=29]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=30]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=31]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=32]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=33]
+font_data = ExtResource( 16 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -49,7 +150,8 @@ rect_scale = Vector2( 2, 2 )
 
 [node name="Title" type="Label" parent="EventWindow/EventWindowImage/VBoxContainer"]
 margin_right = 300.0
-margin_bottom = 14.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 1 )
 text = "TITLE"
 valign = 1
 autowrap = true
@@ -64,7 +166,8 @@ rect_scale = Vector2( 1.2, 1.2 )
 
 [node name="Description" type="Label" parent="EventWindow/EventWindowImage/VBoxContainer2"]
 margin_right = 175.0
-margin_bottom = 82.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 2 )
 text = "çokasokdnfaksdºfkasºdjfasijdfioajdsofijadsoifjaosidjfoiasjdfoiajsdoifjasoidjfaoisdjfoiajsdfioajsdiofjadifjoaisjdiofjaoisdjfaijoiajsidjfoiajsdf"
 autowrap = true
 
@@ -99,6 +202,7 @@ margin_top = 29.0
 margin_right = 67.0
 margin_bottom = 43.0
 rect_rotation = 0.362627
+custom_fonts/font = SubResource( 3 )
 text = "TIME: "
 
 [node name="turn" type="Label" parent="SideBar"]
@@ -107,6 +211,7 @@ margin_top = 27.0
 margin_right = 111.0
 margin_bottom = 41.0
 rect_rotation = 0.362627
+custom_fonts/font = SubResource( 4 )
 text = " "
 
 [node name="foodContainer" type="Container" parent="SideBar"]
@@ -118,12 +223,14 @@ margin_bottom = 109.0
 [node name="Label" type="Label" parent="SideBar/foodContainer"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = SubResource( 5 )
 text = "FOOD"
 
 [node name="food" type="Label" parent="SideBar/foodContainer"]
 margin_left = 50.0
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = SubResource( 6 )
 
 [node name="peopleContainer" type="Container" parent="SideBar"]
 margin_left = 10.0
@@ -134,6 +241,7 @@ margin_bottom = 173.0
 [node name="Label" type="Label" parent="SideBar/peopleContainer"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
 text = "PEOPLE
 "
 
@@ -141,6 +249,7 @@ text = "PEOPLE
 margin_left = 60.0
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = SubResource( 8 )
 
 [node name="NextButton" type="Button" parent="SideBar"]
 anchor_left = 1.0
@@ -182,7 +291,8 @@ rect_scale = Vector2( 2, 2 )
 
 [node name="Title" type="Label" parent="TaskWindow/EventWindowImage/titlebox"]
 margin_right = 304.0
-margin_bottom = 14.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 9 )
 text = "What to do today?"
 valign = 1
 autowrap = true
@@ -202,6 +312,7 @@ margin_right = 175.0
 margin_top = 4.00001
 margin_right = 175.0
 margin_bottom = 35.0
+custom_fonts/font = SubResource( 10 )
 text = "Bring your family on the Great Hunt"
 autowrap = true
 
@@ -209,6 +320,7 @@ autowrap = true
 margin_top = 39.0
 margin_right = 40.0
 margin_bottom = 53.0
+custom_fonts/font = SubResource( 11 )
 text = "RISK"
 
 [node name="HuntRisk" type="Label" parent="TaskWindow/EventWindowImage/HuntBox/Container"]
@@ -217,6 +329,7 @@ margin_top = 36.0
 margin_right = 76.0
 margin_bottom = 50.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 12 )
 
 [node name="HuntGain" type="Label" parent="TaskWindow/EventWindowImage/HuntBox/Container"]
 margin_left = 46.0
@@ -224,11 +337,13 @@ margin_top = 54.0
 margin_right = 76.0
 margin_bottom = 68.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 13 )
 
 [node name="GainLabel" type="Label" parent="TaskWindow/EventWindowImage/HuntBox/Container"]
 margin_top = 57.0
 margin_right = 40.0
 margin_bottom = 71.0
+custom_fonts/font = SubResource( 14 )
 text = "GAIN"
 
 [node name="HuntButton" type="TextureButton" parent="TaskWindow/EventWindowImage/HuntBox/Container"]
@@ -246,6 +361,7 @@ margin_top = 42.0833
 margin_right = 32.25
 margin_bottom = 56.0833
 rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 15 )
 text = "GO"
 
 [node name="ScavengeBox" type="VBoxContainer" parent="TaskWindow/EventWindowImage"]
@@ -263,6 +379,7 @@ margin_right = 175.0
 margin_top = 4.00001
 margin_right = 175.0
 margin_bottom = 35.0
+custom_fonts/font = SubResource( 16 )
 text = "Scavenge for food in the nearby woods
 "
 autowrap = true
@@ -271,6 +388,7 @@ autowrap = true
 margin_top = 39.0
 margin_right = 40.0
 margin_bottom = 53.0
+custom_fonts/font = SubResource( 17 )
 text = "RISK"
 
 [node name="ScavRisk" type="Label" parent="TaskWindow/EventWindowImage/ScavengeBox/Container"]
@@ -279,6 +397,7 @@ margin_top = 36.0
 margin_right = 76.0
 margin_bottom = 50.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 18 )
 
 [node name="ScavGain" type="Label" parent="TaskWindow/EventWindowImage/ScavengeBox/Container"]
 margin_left = 46.0
@@ -286,11 +405,13 @@ margin_top = 54.0
 margin_right = 76.0
 margin_bottom = 68.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 19 )
 
 [node name="GainLabel" type="Label" parent="TaskWindow/EventWindowImage/ScavengeBox/Container"]
 margin_top = 57.0
 margin_right = 40.0
 margin_bottom = 71.0
+custom_fonts/font = SubResource( 20 )
 text = "GAIN"
 
 [node name="ScavButton" type="TextureButton" parent="TaskWindow/EventWindowImage/ScavengeBox/Container"]
@@ -309,6 +430,7 @@ margin_top = 42.0833
 margin_right = 32.25
 margin_bottom = 56.0833
 rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 21 )
 text = "GO"
 
 [node name="FarmBox" type="VBoxContainer" parent="TaskWindow/EventWindowImage"]
@@ -326,6 +448,7 @@ margin_right = 175.0
 margin_top = 4.00001
 margin_right = 175.0
 margin_bottom = 35.0
+custom_fonts/font = SubResource( 22 )
 text = "Farm for a brighter tomorrow
 "
 autowrap = true
@@ -334,6 +457,7 @@ autowrap = true
 margin_top = 39.0
 margin_right = 40.0
 margin_bottom = 53.0
+custom_fonts/font = SubResource( 23 )
 text = "RISK"
 
 [node name="FarmRisk" type="Label" parent="TaskWindow/EventWindowImage/FarmBox/Container"]
@@ -342,6 +466,7 @@ margin_top = 36.0
 margin_right = 76.0
 margin_bottom = 50.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 24 )
 
 [node name="FarmGain" type="Label" parent="TaskWindow/EventWindowImage/FarmBox/Container"]
 margin_left = 46.0
@@ -349,11 +474,13 @@ margin_top = 54.0
 margin_right = 76.0
 margin_bottom = 68.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 25 )
 
 [node name="GainLabel" type="Label" parent="TaskWindow/EventWindowImage/FarmBox/Container"]
 margin_top = 57.0
 margin_right = 40.0
 margin_bottom = 71.0
+custom_fonts/font = SubResource( 26 )
 text = "GAIN"
 
 [node name="FarmButton" type="TextureButton" parent="TaskWindow/EventWindowImage/FarmBox/Container"]
@@ -371,6 +498,7 @@ margin_top = 42.0833
 margin_right = 32.25
 margin_bottom = 56.0833
 rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 27 )
 text = "GO"
 
 [node name="FishtBox" type="VBoxContainer" parent="TaskWindow/EventWindowImage"]
@@ -388,6 +516,7 @@ margin_right = 175.0
 margin_top = 4.00001
 margin_right = 175.0
 margin_bottom = 35.0
+custom_fonts/font = SubResource( 28 )
 text = "Take off to the river and catch fish"
 autowrap = true
 
@@ -395,6 +524,7 @@ autowrap = true
 margin_top = 39.0
 margin_right = 40.0
 margin_bottom = 53.0
+custom_fonts/font = SubResource( 29 )
 text = "RISK"
 
 [node name="FishRisk" type="Label" parent="TaskWindow/EventWindowImage/FishtBox/Container"]
@@ -403,6 +533,7 @@ margin_top = 36.0
 margin_right = 76.0
 margin_bottom = 50.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 30 )
 
 [node name="FishGain" type="Label" parent="TaskWindow/EventWindowImage/FishtBox/Container"]
 margin_left = 46.0
@@ -410,6 +541,7 @@ margin_top = 54.0
 margin_right = 76.0
 margin_bottom = 68.0
 rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 31 )
 
 [node name="FishButton" type="TextureButton" parent="TaskWindow/EventWindowImage/FishtBox/Container"]
 margin_left = 103.0
@@ -427,12 +559,14 @@ margin_top = 42.0833
 margin_right = 32.25
 margin_bottom = 56.0833
 rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 32 )
 text = "GO"
 
 [node name="GainLabel" type="Label" parent="TaskWindow/EventWindowImage/FishtBox/Container"]
 margin_top = 57.0
 margin_right = 40.0
 margin_bottom = 71.0
+custom_fonts/font = SubResource( 33 )
 text = "GAIN"
 
 [connection signal="pressed" from="EventWindow/EventWindowImage/Button" to="EventWindow" method="_on_Button_pressed"]

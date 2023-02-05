@@ -9,7 +9,7 @@ func triggerEvent(scene) :
 	var character: Character = list_characters[randi() % list_characters.size()] # TODO select random
 	self.title = "A member found extra food"
 	
-	self.text = character.first_name+" " +character.last_name+ " found a pile of food"
+	self.text = character.first_name+" " +character.last_name+ " found a pile of food laying in the ground\nWhat a luck"
 	
 	scene.food = scene.food +5
 	

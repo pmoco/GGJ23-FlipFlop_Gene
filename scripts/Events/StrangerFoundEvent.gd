@@ -8,7 +8,7 @@ func triggerEvent(scene) :
 	var  StrangerFirstName = possible_names[randi() % possible_names.size()] 
 	var StrangerLastName = possible_names[randi() % possible_names.size()]
 	self.title = StrangerFirstName+ " " + StrangerLastName +" as Approached the tribe"
-	self.text = "a Stranger approached and called you a great bug fortune  (+1 Pepl)"
+	self.text = "a Stranger approached and would like to join the community"
 	
 	scene.peopleCount = scene.peopleCount +1
 	

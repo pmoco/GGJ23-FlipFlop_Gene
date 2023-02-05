@@ -14,7 +14,7 @@ func triggerEvent(scene) :
 		return -1
 	if is_instance_valid(character2.partner):
 		return -1
-	self.title = character1.first_name+" " +character1.last_name+" as Married with "+character2.first_name+" " +character2.last_name
+	self.title = character1.first_name+" " +character1.last_name+" as married with "+character2.first_name+" " +character2.last_name
 	self.text = "Prepare the wedding love is in the air"
 	
 	scene.peopleCount = scene.peopleCount +1

@@ -19,7 +19,7 @@ func triggerEvent(scene) :
 		character_to_kill.is_alive = false
 	
 	else:
-		self.title = "Sickness in the family"
+		self.title = "Sick member in the family"
 		self.text = character_to_kill.first_name+" " +character_to_kill.last_name+ " got sick"
 	
 	self.eventName =  "ThisisaSickEvent"
