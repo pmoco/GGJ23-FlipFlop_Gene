@@ -6,7 +6,7 @@ func triggerEvent(scene) :
 	var age
 	if(age_number <30):
 		age = Character.AGE.CHILD
-	elif(30 <= age_number and  age_number<50):
+	elif(30 <= age_number and  age_number < 50):
 		age = Character.AGE.ADULT
 	elif(50 <= age_number):
 		age = Character.AGE.ELDER
