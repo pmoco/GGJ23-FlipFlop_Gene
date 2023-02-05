@@ -61,10 +61,9 @@ func _init() -> void:
 	var frame_texture_name = "MOLDURA_" + str(frame_index) + ".png"
 	frame_texture = load("res://ASSETS/UI_OVERLAYS/" + frame_texture_name)
 	
-#	var face_texture_name = "FACE_" + str(face_index) + ".png"
-	var face_texture_name = "FACE.png"
-	face_texture = load("res://ASSETS/" + face_texture_name)
-	face_size = Vector2(rect_size[0]*1, rect_size[0]*1)
+	var face_texture_name = "FACE_" + str(face_index) + ".png"
+	face_texture = load("res://ASSETS/FACES/" + face_texture_name)
+	face_size = Vector2(rect_size[0]*.8, rect_size[0]*1)
 	
 	var label = Label.new()
 	default_font = label.get_font("")
