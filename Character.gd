@@ -15,6 +15,7 @@ enum STATUS {
 	OTHER
 }
 
+var flip: bool = bool(randi() % 2)
 var first_name : String = "Flip"
 var last_name : String = "Flap"
 var age : int = AGE.ADULT
@@ -35,15 +36,39 @@ var graph_holder : WeakRef = null
 var graph_row : int = -1
 var is_selected: bool = false
 
-var color_default = Color(1,0,0,1)
-var color_dead = Color(0,0,0,0.5)
+var color_default = Color(1,1,1,1)
+var color_dead = Color(0.1,0.1,0.1,0.5)
 var color_selected = Color(0.9,0.2,.5,1)
+
+
+# Drawing frame content info
+var frame_index : int = (randi() % 5) + 1
+var frame_texture: Texture = null
+
+var face_index : int = (randi() % 10) + 1
+var face_texture: Texture = null
+var face_offset : Vector2 = Vector2(10, 10)
+var face_size : Vector2
+
+var default_font: Font = null
 
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	rect_position[0] = 0
 	rect_position[1] = 0
 	rect_size[0] = 60
+	
+	var frame_texture_name = "MOLDURA_" + str(frame_index) + ".png"
+	frame_texture = load("res://ASSETS/UI_OVERLAYS/" + frame_texture_name)
+	
+#	var face_texture_name = "FACE_" + str(face_index) + ".png"
+	var face_texture_name = "FACE.png"
+	face_texture = load("res://ASSETS/" + face_texture_name)
+	face_size = Vector2(rect_size[0]*1, rect_size[0]*1)
+	
+	var label = Label.new()
+	default_font = label.get_font("")
+	label.free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -54,9 +79,9 @@ func _to_string() -> String:
 	if is_alive:
 		alive_text = "It is alive."
 	return "This character is named " + first_name + " " + last_name + ". " + \
-	 "It is at the age of " + AGE.keys()[age] + " and is " + STATUS.keys()[status] + ". " + \
-	 alive_text + \
-	 "It has " + str(num_of_generations()) + " family generations."
+		"It is at the age of " + AGE.keys()[age] + " and is " + STATUS.keys()[status] + ". " + \
+		alive_text + \
+		"It has " + str(num_of_generations()) + " family generations."
 
 func marry(character : Character) -> void:
 	if character == self:
@@ -102,7 +127,30 @@ func _draw():
 		color = color_selected
 	if !is_alive:
 		color = color_dead
-	draw_circle(rect_position, rect_size[0], color)
+#	draw_circle(rect_position, rect_size[0], color)
+	var frame_pos: Vector2 = Vector2(rect_position - Vector2(rect_size[0], rect_size[0]))
+	var frame_size: Vector2 = Vector2(Vector2(rect_size[0] * 2, rect_size[0] * 2))
+	var frame_rect: Rect2 = Rect2(frame_pos, frame_size)
+	draw_texture_rect(frame_texture, frame_rect, false, color)
+	
+	var face_pos: Vector2 = Vector2(rect_position - (face_size * Vector2(.5, .5)))
+	var face_rect: Rect2 = Rect2(face_pos, face_size)
+	if flip:
+		face_pos = Vector2(rect_position + (face_size * Vector2(.5, .5)))
+		face_rect = Rect2(Vector2(), face_size)
+		draw_set_transform(face_pos, PI, Vector2(1, 1))
+	draw_texture_rect(face_texture, face_rect, false, color)
+	if flip:
+		draw_set_transform(Vector2(), 0, Vector2(1, 1))
+	
+	# Show Tooltip
+	var offset = get_local_mouse_position()
+	if offset.distance_to(rect_position) < rect_size[0]:
+		var text_pos = Vector2(rect_position + Vector2(rect_size[0]/2, rect_size[0] * 1.4))
+		var text_string: String = first_name + " " + last_name
+		draw_set_transform(text_pos, 0, Vector2(2, 2))
+		draw_string(default_font, Vector2(), text_string)
+		draw_set_transform(Vector2(), 0, Vector2(1, 1))
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
