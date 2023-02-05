@@ -80,6 +80,9 @@ func nextStep():
 	currentState.run(self)
 	printState()
 
+func _input(event):
+	if event is InputEventKey and event.scancode == KEY_ESCAPE and event.is_pressed():
+		get_tree().quit()
 
 
 
