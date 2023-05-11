@@ -16,6 +16,6 @@ func getNextState() -> State :
 func setNextState(nextS: State) -> void:
 	nextState = nextS
 	
-func run(scene: SceneManager) -> void: 
+func run(scene) -> void: 
 	print(nameState)
 	scene.peopleCount= 0
