@@ -1,7 +1,4 @@
-extends Node
-
-class_name State 
-
+class_name State extends Node
 
 var nameState :String  = "state"
 var nextState :State = null
@@ -12,25 +9,13 @@ func nextEvent(scene):
 	if window.is_visible():
 		window.hide()
 
-	
-	
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 func getNextState() -> State : 
 	return nextState
 	
-func setNextState(nextS) -> void:
+func setNextState(nextS: State) -> void:
 	nextState = nextS
 	
-func run( scene) -> void: 
-	printName()
-	scene.peopleCount= 0
-
-func printName():
+func run(scene: SceneManager) -> void: 
 	print(nameState)
-
-
-
+	scene.peopleCount= 0
